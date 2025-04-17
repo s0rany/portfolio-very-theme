@@ -58,6 +58,23 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
       }
+      .buttons {
+        display: inline;
+        color: red;
+        font-family: var(--ddd-font-navigation-24);
+      }
+      button {
+    background-color: var(--ddd-theme-primary, #333);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: var(--ddd-radius-md, 8px);
+    cursor: pointer;
+    font-size: var(--ddd-font-size-s, 1rem);
+  }
+  button:hover {
+    background-color: var(--ddd-theme-primary-hover, #555);
+  }
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
       }
@@ -68,6 +85,7 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
       <div class="wrapper">
+      <h1>HELLO FROM NAV</h1>
         <div class="buttons">
           <button>About</button>
           <button>Research</button>
