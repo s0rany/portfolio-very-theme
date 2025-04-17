@@ -14,10 +14,10 @@ import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
  * @demo index.html
  * @element portfolio-very-theme
  */
-export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
+export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "portfolio-very-theme";
+    return "portfolio-very-title";
   }
 
   constructor() {
@@ -31,7 +31,7 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
     this.registerLocalization({
       context: this,
       localesPath:
-        new URL("./locales/portfolio-very-theme.ar.json", import.meta.url).href +
+        new URL("./locales/portfolio-very-title.ar.json", import.meta.url).href +
         "/../",
       locales: ["ar", "es", "hi", "zh"],
     });
@@ -68,10 +68,10 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-  <slot></slot>
-  <scroll-button></scroll-button>
-</div>`;
+        <div class="wrapper">
+            <slot></slot>
+            <scroll-button></scroll-button>
+        </div>`;
   }
 
   /**
@@ -83,4 +83,4 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(PortfolioVeryTheme.tag, PortfolioVeryTheme);
+globalThis.customElements.define(PortfolioVeryTitle.tag, PortfolioVeryTitle);
