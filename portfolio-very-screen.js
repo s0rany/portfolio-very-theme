@@ -55,10 +55,13 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-default);
         font-family: var(--ddd-font-navigation);
-        width: 500px;
-        height: 450px;
       }
       .wrapper {
+        width: 600px;
+        height: 550px;
+        border: 2px solid red;
+        background-color: yellow;
+        background-color: var(--ddd-theme-default);
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
       }
@@ -71,7 +74,7 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-    <div class="wrapper" color=${this.color}>
+    <div class="wrapper">
         <slot></slot>
     </div>`;
   }

@@ -72,7 +72,7 @@ export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
         <div class="wrapper">
-            <h3> ${this.title}</h3>
+            <h3>${this.title}</h3>
             <slot></slot>
         </div>`;
   }
