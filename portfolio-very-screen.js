@@ -3,7 +3,6 @@
  * @license Apache-2.0, see LICENSE for full text.
  */
 import { LitElement, html, css } from "lit";
-import '@haxtheweb/scroll-button/scroll-button.js';
 
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
@@ -23,6 +22,7 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
+    this.color = "athertonViolet"
     this.t = this.t || {};
     this.t = {
       ...this.t,
@@ -42,6 +42,7 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
+      color: { type: String },
     };
   }
 
@@ -52,8 +53,10 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
       :host {
         display: block;
         color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        background-color: var(--ddd-theme-default);
         font-family: var(--ddd-font-navigation);
+        width: 500px;
+        height: 450px;
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
@@ -68,10 +71,9 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-  <slot></slot>
-  <scroll-button></scroll-button>
-</div>`;
+    <div class="wrapper" color=${this.color}>
+        <slot></slot>
+    </div>`;
   }
 
   /**

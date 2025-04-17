@@ -3,7 +3,6 @@
  * @license Apache-2.0, see LICENSE for full text.
  */
 import { LitElement, html, css } from "lit";
-import '@haxtheweb/scroll-button/scroll-button.js';
 
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
@@ -52,12 +51,16 @@ export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
       :host {
         display: block;
         color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        background-color: var(--ddd-theme-default-nittanyNavy);
         font-family: var(--ddd-font-navigation);
+        width: 500px;
+        height: 20px;
       }
       .wrapper {
         margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
+        width: 500px;
+        height: 20px;
       }
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
@@ -69,8 +72,8 @@ export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
         <div class="wrapper">
+            <h3> ${this.title}</h3>
             <slot></slot>
-            <scroll-button></scroll-button>
         </div>`;
   }
 
