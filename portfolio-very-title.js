@@ -8,20 +8,21 @@ import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
 /**
- * `portfolio-very-nav`
+ * `portfolio-very-theme`
  * 
  * @demo index.html
- * @element portfolio-very-nav
+ * @element portfolio-very-theme
  */
-export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
+export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
 
   static get tag() {
-    return "portfolio-very-nav";
+    return "portfolio-very-title";
   }
 
   constructor() {
     super();
-    this.title = "";
+    this.title = "My Portfolio";
+    this.color = "infoLight"
     this.t = this.t || {};
     this.t = {
       ...this.t,
@@ -30,7 +31,7 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
     this.registerLocalization({
       context: this,
       localesPath:
-        new URL("./locales/portfolio-very-nav.ar.json", import.meta.url).href +
+        new URL("./locales/portfolio-very-title.ar.json", import.meta.url).href +
         "/../",
       locales: ["ar", "es", "hi", "zh"],
     });
@@ -41,6 +42,8 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
+      color: { type: String },
+
     };
   }
 
@@ -51,30 +54,16 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
       :host {
         display: block;
         color: var(--ddd-theme-primary);
-        background-color: var(--ddd-theme-accent);
+        background-color: var(--ddd-theme-default-nittanyNavy);
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
-        margin: var(--ddd-spacing-2);
+        border: 2px solid red;
+        background-color: var(--ddd-theme-default-nittanyNavy);
         padding: var(--ddd-spacing-4);
+        width: auto;
+        height: 80px;
       }
-      .buttons {
-        display: inline;
-        color: red;
-        font-family: var(--ddd-font-navigation-24);
-      }
-      button {
-    background-color: var(--ddd-theme-primary, #333);
-    color: white;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: var(--ddd-radius-md, 8px);
-    cursor: pointer;
-    font-size: var(--ddd-font-size-s, 1rem);
-  }
-  button:hover {
-    background-color: var(--ddd-theme-primary-hover, #555);
-  }
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
       }
@@ -84,17 +73,9 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-      <div class="wrapper">
-      <h1>HELLO FROM NAV</h1>
-        <div class="buttons">
-          <button>About</button>
-          <button>Research</button>
-          <button>Presentations & Publications</button>
-          <button>Professional Development</button>
-          <button>Contact</button>
-        </div>
-        <slot></slot>
-      </div>`;
+        <div class="wrapper">
+            <h3>${this.title}</h3>
+        </div>`;
   }
 
   /**
@@ -106,4 +87,4 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
   }
 }
 
-globalThis.customElements.define(PortfolioVeryNav.tag, PortfolioVeryNav);
+globalThis.customElements.define(PortfolioVeryTitle.tag, PortfolioVeryTitle);

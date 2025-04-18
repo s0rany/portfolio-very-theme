@@ -22,7 +22,7 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
-    this.color = "athertonViolet"
+    this.color = "infoLight"
     this.t = this.t || {};
     this.t = {
       ...this.t,
@@ -57,13 +57,14 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
-        width: 600px;
-        height: 550px;
+        width: auto;
+        height: 500px;
         border: 2px solid red;
-        background-color: yellow;
         background-color: var(--ddd-theme-default);
-        margin: var(--ddd-spacing-2);
         padding: var(--ddd-spacing-4);
+      }
+      .info {
+        color: red;
       }
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
@@ -75,9 +76,17 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
     <div class="wrapper">
+      <div class="info">
         <slot></slot>
+      </div>
     </div>`;
   }
+  updated(changedProperties) {
+    if (changedProperties.has("color")) {
+      this.style.setProperty("--ddd-theme-default", `var(--ddd-theme-default-${this.color})`);
+    }
+  }
+    
 
   /**
    * haxProperties integration via file reference   <h3><span>${this.t.title}:</span> ${this.title}</h3>
