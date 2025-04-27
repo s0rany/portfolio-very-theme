@@ -22,6 +22,7 @@ export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "My Portfolio";
+    this.img = "";
     this.color = "infoLight"
     this.t = this.t || {};
     this.t = {
@@ -43,6 +44,7 @@ export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
       ...super.properties,
       title: { type: String },
       color: { type: String },
+      img: { type: String },
 
     };
   }
@@ -58,14 +60,14 @@ export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
-        border: 2px solid red;
         background-color: var(--ddd-theme-default-nittanyNavy);
         padding: var(--ddd-spacing-4);
         width: auto;
         height: 80px;
-      }
-      h3 span {
-        font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
+        font-size:var(--ddd-font-size-4xl);
+        display: flex;
+        flex-direction: row;
+        align-items: center; 
       }
     `];
   }
@@ -74,7 +76,8 @@ export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
         <div class="wrapper">
-            <h3>${this.title}</h3>
+        <img src="${this.img}" alt="portfolio image" height="50" />
+            <p>${this.title}</p>
         </div>`;
   }
 

@@ -3,7 +3,6 @@
  * @license Apache-2.0, see LICENSE for full text.
  */
 import { LitElement, html, css } from "lit";
-
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
 
@@ -21,6 +20,7 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
+   
     this.title = "";
     this.t = this.t || {};
     this.t = {
@@ -57,30 +57,29 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
-        border: 2px solid red;
+        display: flex;
         height: 50px;
         width: auto;
-        background-color: var(--ddd-theme-infoLight);
-        padding: var(--ddd-spacing-4);
+        //background-color: var(--ddd-theme-default-infoLight);
+      }
+      .indent{
+        background-color: var(--ddd-theme-default-beaverBlue);
+        height: 100%;
+        width: 25%;
       }
       .buttons {
+        background-color: var(--ddd-theme-default-beaverBlue);
+        height: 100%;
+        width: 75%;
         display: flex;
-        justify-content: space-between;
-        color: red;
-        font-family: var(--ddd-font-navigation-24);
+        justify-content: space-evenly;
+        align-items: center; 
+        font-family: var(--ddd-font-navigation-12);
       }
-      button {
-        background-color: var(--ddd-theme-primary, #333);
+      .buttons p{
         color: white;
-        padding: 0.5rem 1rem;
-        border: none;
-        border-radius: var(--ddd-radius-md, 8px);
-        cursor: pointer;
-        font-size: var(--ddd-font-size-s, 1rem);
       }
-      button:hover {
-        background-color: var(--ddd-theme-primary-hover, #555);
-      }
+     
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
       }
@@ -90,17 +89,15 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-      <div class="wrapper">
+      <div class="wrapper" >
+        <div class="indent"></div>
         <div class="buttons">
-          <button>About</button>
-          <button>Research</button>
-          <button>Presentations & Publications</button>
-          <button>Professional Development</button>
-          <button>Contact</button>
+          <slot></slot>
         </div>
       </div>`;
   }
 
+ 
   /**
    * haxProperties integration via file reference   <h3><span>${this.t.title}:</span> ${this.title}</h3>
    */

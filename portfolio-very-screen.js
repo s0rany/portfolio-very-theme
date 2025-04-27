@@ -21,6 +21,7 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
+    this.screenNumber = null;
     this.title = "";
     this.color = "infoLight"
     this.t = this.t || {};
@@ -43,6 +44,8 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
       ...super.properties,
       title: { type: String },
       color: { type: String },
+      screenNumber: { type: Number },
+
     };
   }
 
@@ -51,24 +54,23 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
     return [super.styles,
     css`
       :host {
-        display: block;
+        //display: block;
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-default);
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
-        width: auto;
-        height: 500px;
-        border: 2px solid red;
+        width: 100%;
+        height: 750px;
         background-color: var(--ddd-theme-default);
-        padding: var(--ddd-spacing-4);
       }
       .info {
-        color: red;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: black;
       }
-      h3 span {
-        font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
-      }
+   
     `];
   }
 
@@ -85,6 +87,21 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
     if (changedProperties.has("color")) {
       this.style.setProperty("--ddd-theme-default", `var(--ddd-theme-default-${this.color})`);
     }
+  }
+
+  firstUpdated(changedProperties) {
+    if (super.firstUpdated) {
+      super.firstUpdated(changedProperties);
+    }
+    this.dispatchEvent(new CustomEvent('screen-added', {
+      bubbles: true,
+      composed: true,
+      detail: {
+        value: this
+
+      }
+    }))
+
   }
     
 

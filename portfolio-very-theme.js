@@ -20,26 +20,15 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
 
   constructor() {
     super();
-    this.title = "";
-    this.t = this.t || {};
-    this.t = {
-      ...this.t,
-      title: "Title",
-    };
-    this.registerLocalization({
-      context: this,
-      localesPath:
-        new URL("./locales/portfolio-very-theme.ar.json", import.meta.url).href +
-        "/../",
-      locales: ["ar", "es", "hi", "zh"],
-    });
+    this.screens = [];
+    
   }
 
   // Lit reactive properties
   static get properties() {
     return {
       ...super.properties,
-      title: { type: String },
+      screens: {type: Array}
     };
   }
 
@@ -54,21 +43,51 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
+        //margin: var(--ddd-spacing-2);
+        //padding: var(--ddd-spacing-4);
       }
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
       }
+      a, a:link, a:visited, a:hover, a:active {
+        color: white;
+        text-decoration: none; 
+      }
+     
     `];
   }
 
   // Lit render the HTML
   render() {
     return html`
-      <div class="wrapper">
-        <slot></slot>
+    <slot name="title" ></slot>
+    <portfolio-very-nav>
+      ${this.screens.map((screen, index) => html `<a href="#${screen.number}" @click="${this.linkChange}" data-index="${index}">${screen.title}</a>`)}
+    </portfolio-very-nav>
+      <div class="wrapper" @screen-added="${this.addScreen}">
+        <slot name="screens"></slot>
       </div>`;
+  }
+
+  linkChange(e) {
+    let number = parseInt(e.target.getAttribute('data-index'));
+    if (number>=0) {
+      this.screens[number].element.scrollIntoView();
+    }
+  }
+  addScreen(e) {
+    const element = e.detail.value
+    const screen = {
+      number: element.screenNumber,
+      title: element.title,
+      element: element,
+    }
+    this.screens = [...this.screens, screen];
+  }
+
+  firstUpdated() {
+    window.location.hash = "#1";    
+    this.screens[1].element.scrollIntoView;
   }
 
   /**
