@@ -72,10 +72,15 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
       }
       .info {
         display: flex;
+        flex-direction: column;
         align-items: center; 
-        justify-content: space-around; 
+        justify-content: center; 
         height: 100%;
         color: var(--ddd-theme-default-coalyGray);
+      }
+      .info p {
+        max-width: 500px;
+        margin: 0 auto; /* Centers the paragraph horizontally */
       }
       ::slotted(img)
       {
@@ -84,7 +89,7 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
       @media (max-width: 700px)
       {
         ::slotted(img){
-          height: 100px;
+          height: 200px;
         }
       }
    
