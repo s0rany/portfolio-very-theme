@@ -13,6 +13,12 @@
       padding: var(--ddd-spacing-0);
       overflow-x: hidden;
     }
+    @media (max-width: 700px) {
+      .page1section1 img {
+        height: 200px;
+      }
+    }
+
   </style>
   <title>portfolio-very-theme</title>
 
@@ -23,26 +29,23 @@
 <script type="module" src="./portfolio-very-screen.js"></script>
 <script type="module" src="./portfolio-very-scroll.js"></script>
 <body>
-  
-  
     <portfolio-very-theme>
     <portfolio-very-title slot="title" title="Portfolio" img="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Light_blue_star.svg/2048px-Light_blue_star.svg.png"></portfolio-very-title>
       <portfolio-very-screen slot="screens" title="About Me" color="skyLight" screenNumber="1">
+        <div class="page1section1">
           <img src="https://media.licdn.com/dms/image/v2/D4E03AQHPwSNx6LUq9g/profile-displayphoto-shrink_400_400/B4EZRNnrg1GYAk-/0/1736469036162?e=1751500800&v=beta&t=rFyQpF9G2AUWOO2NezmssUKY0okASFNzbAalWL9188w" alt="screen image" height="300"/>
-        <div class="section 2">
           <p>I’m a second-year student at Penn State studying Human-Centered Design & Development with a minor in Psychology. 
             I enjoy creating digital experiences that are easy to use and meaningful.</p>
         </div>
       </portfolio-very-screen>
       <portfolio-very-screen slot="screens" title="Resume" color="creekTeal" screenNumber="2">
-        <div class="section 1">
+        <div class="page2section1">
           <p>Resume Overview</p>
           <p>Human-Centered Design & Development student at Penn State with a minor in Psychology. 
             Skilled in front-end development, user research, and usability testing. 
             Experienced in Java, Python, JavaScript, and design tools like Figma and Miro. 
             Strong communicator with experience supporting students as a Learning Assistant and managing high-volume guest interactions in hospitality.
           </p>
-          
         </div>
       </portfolio-very-screen>
       <portfolio-very-screen slot="screens" title="Projects" color="skyBlue" screenNumber="3">
@@ -71,14 +74,9 @@
         <p>Email: sfc5954@psu.edu</p>
         <p>Phone: 914-354-0484</p>
         <a href="www.linkedin.com/in/sorany-campo-5a8aa52b8">LinkedIn</a>
-
-        
-
       </portfolio-very-screen>
       <portfolio-very-scroll slot="scroll" img="https://content.sportslogos.net/logos/33/801/full/penn_state_nittany_lions_logo_primary_19838537.png"></portfolio-very-scroll>
     </portfolio-very-theme>
- 
-
   <script>
     document.body.querySelector('portfolio-very-theme').addEventListener('screen-added', (e) => {
       console.log(e.detail.value);

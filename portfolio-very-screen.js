@@ -78,16 +78,6 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
         height: 100%;
         color: var(--ddd-theme-default-coalyGray);
       }
-      ::slotted(img)
-      {
-        width: auto;
-      }
-      @media (max-width: 700px)
-      {
-        ::slotted(img){
-          height: 200px;
-        }
-      }
    
     `];
   }
