@@ -52,37 +52,51 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
     css`
       :host {
         display: block;
+        width: 100%;
+        max-width: 100vw;
         color: var(--ddd-theme-primary);
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
       }
-      .wrapper {
+      .wrapper{
+        width: 100%;
+        max-width: 100vw;
         display: flex;
         height: 50px;
-        width: auto;
-        //background-color: var(--ddd-theme-default-infoLight);
+        position: fixed;
       }
+      /*
       .indent{
+        opacity: 90%;
         background-color: var(--ddd-theme-default-beaverBlue);
         height: 100%;
-        width: 25%;
+        flex: 1;
+
+        //width: 25%;
       }
+        */
       .buttons {
+        opacity: 90%;
         background-color: var(--ddd-theme-default-beaverBlue);
         height: 100%;
-        width: 75%;
+        flex: 1;
         display: flex;
         justify-content: space-evenly;
         align-items: center; 
         font-family: var(--ddd-font-navigation-12);
       }
-      .buttons p{
-        color: white;
+      .buttons a{
+        font-size: var(--ddd-font-size-l);
+        color: var(--ddd-theme-default-white);
       }
-     
-      h3 span {
-        font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
+    
+      @media (max-width: 900px)
+      {
+        .buttons a{
+          font-size: var(--ddd-font-size-xs);
+        }
       }
+        
     `];
   }
 
@@ -90,7 +104,6 @@ export class PortfolioVeryNav extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
       <div class="wrapper" >
-        <div class="indent"></div>
         <div class="buttons">
           <slot></slot>
         </div>

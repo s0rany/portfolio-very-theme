@@ -45,7 +45,6 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
       title: { type: String },
       color: { type: String },
       screenNumber: { type: Number },
-
     };
   }
 
@@ -61,14 +60,32 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
       }
       .wrapper {
         width: 100%;
-        height: 750px;
+        height: 700px;
         background-color: var(--ddd-theme-default);
+      }
+      .title{
+        position: relative;
+        top: var(--ddd-spacing-10); 
+        left: var(--ddd-spacing-5);
+        font-size:var(--ddd-font-size-xxl);
+        color: var(--ddd-theme-default-nittanyNavy);
       }
       .info {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        color: black;
+        align-items: center; 
+        justify-content: space-around; 
+        height: 100%;
+        color: var(--ddd-theme-default-coalyGray);
+      }
+      ::slotted(img)
+      {
+        width: auto;
+      }
+      @media (max-width: 700px)
+      {
+        ::slotted(img){
+          height: 100px;
+        }
       }
    
     `];
@@ -78,6 +95,7 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
     <div class="wrapper">
+      <div class="title">${this.title}</div>
       <div class="info">
         <slot></slot>
       </div>

@@ -23,6 +23,7 @@ export class PortfolioVeryScroll extends DDDSuper(I18NMixin(LitElement)) {
   constructor() {
     super();
     this.title = "";
+    this.img = "";
     this.t = this.t || {};
     this.t = {
       ...this.t,
@@ -42,6 +43,8 @@ export class PortfolioVeryScroll extends DDDSuper(I18NMixin(LitElement)) {
     return {
       ...super.properties,
       title: { type: String },
+      img: { type: String },
+
     };
   }
 
@@ -56,8 +59,11 @@ export class PortfolioVeryScroll extends DDDSuper(I18NMixin(LitElement)) {
         font-family: var(--ddd-font-navigation);
       }
       .wrapper {
-        margin: var(--ddd-spacing-2);
-        padding: var(--ddd-spacing-4);
+        height: 150px;
+        background-color: var(--ddd-theme-default-beaverBlue);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
       }
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
@@ -68,10 +74,10 @@ export class PortfolioVeryScroll extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-<div class="wrapper">
-  <slot></slot>
-  <scroll-button></scroll-button>
-</div>`;
+    <div class="wrapper">
+      <img src="${this.img}" alt="footer image" height="100"/>
+      <scroll-button></scroll-button>
+    </div>`;
   }
 
   /**

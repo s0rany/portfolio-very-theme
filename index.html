@@ -11,22 +11,7 @@
     :root, html, body {
       margin: var(--ddd-spacing-0);
       padding: var(--ddd-spacing-0);
-    }
-    #demo {
-      margin: var(--ddd-spacing-2);
-    }
-    portfolio-very-theme {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
-    portfolio-very-theme:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
-    #example {
-      --portfolio-very-theme-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
+      overflow-x: hidden;
     }
   </style>
   <title>portfolio-very-theme</title>
@@ -38,28 +23,34 @@
 <script type="module" src="./portfolio-very-screen.js"></script>
 <script type="module" src="./portfolio-very-scroll.js"></script>
 <body>
-  <div id="demo">
-    <h1>portfolio-very-theme</h1>
-    <h2>Portfolio</h2>
+  
+  
     <portfolio-very-theme>
-    <portfolio-very-title slot="title" img="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Light_blue_star.svg/2048px-Light_blue_star.svg.png"></portfolio-very-title>
-      <portfolio-very-screen slot="screens" title="About" color="skyLight" screenNumber="1">
-        <p>About</p>
+    <portfolio-very-title slot="title" title="Portfolio" img="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Light_blue_star.svg/2048px-Light_blue_star.svg.png"></portfolio-very-title>
+      <portfolio-very-screen slot="screens" title="About Me" color="skyLight" screenNumber="1">
+          <img src="https://media.licdn.com/dms/image/v2/D4E03AQHPwSNx6LUq9g/profile-displayphoto-shrink_400_400/B4EZRNnrg1GYAk-/0/1736469036162?e=1751500800&v=beta&t=rFyQpF9G2AUWOO2NezmssUKY0okASFNzbAalWL9188w" alt="screen image" height="400"/>
+        <div class="section 2">
+          <p>Brief professional bio(research focus, academic background, key achivements). text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text</p>
+        </div>
       </portfolio-very-screen>
-      <portfolio-very-screen slot="screens" title="Research" color="creekTeal" screenNumber="2">
-        <p>Hello 2</p>
+      <portfolio-very-screen slot="screens" title="Resume" color="creekTeal" screenNumber="2">
+        <div class="section 1">
+          <p>some research</p>
+          <img src="c:\Users\socam\Pictures\Screenshots\Screenshot 2025-05-01 132713.png" alt="screen image" height="400" />
+        </div>
       </portfolio-very-screen>
-      <portfolio-very-screen slot="screens" title="Presentations & Publications" color="skyBlue" screenNumber="3">
-        <p>Hello 3</p>
+      <portfolio-very-screen slot="screens" title="Projects" color="skyBlue" screenNumber="3">
+        <p>Presentations & Publications</p>
       </portfolio-very-screen>
-      <portfolio-very-screen slot="screens" title="Professional Development" color="pughBlue" screenNumber="4">
-        <p>Hello 4</p>
+      <portfolio-very-screen slot="screens" title="Experience" color="pughBlue" screenNumber="4">
+        <p>Professional Development</p>
       </portfolio-very-screen>
       <portfolio-very-screen slot="screens" title="Contact" color="athertonViolet" screenNumber="5">
-        <p>Hello 5</p>
+        <p>Contact</p>
       </portfolio-very-screen>
+      <portfolio-very-scroll slot="scroll" img="https://content.sportslogos.net/logos/33/801/full/penn_state_nittany_lions_logo_primary_19838537.png"></portfolio-very-scroll>
     </portfolio-very-theme>
-  </div>
+ 
 
   <script>
     document.body.querySelector('portfolio-very-theme').addEventListener('screen-added', (e) => {

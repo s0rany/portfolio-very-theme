@@ -64,11 +64,12 @@ export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
         padding: var(--ddd-spacing-4);
         width: auto;
         height: 80px;
-        font-size:var(--ddd-font-size-4xl);
+        font-size: var(--ddd-font-size-4xl);
         display: flex;
         flex-direction: row;
         align-items: center; 
       }
+     
     `];
   }
 
@@ -76,7 +77,7 @@ export class PortfolioVeryTitle extends DDDSuper(I18NMixin(LitElement)) {
   render() {
     return html`
         <div class="wrapper">
-        <img src="${this.img}" alt="portfolio image" height="50" />
+        <img src="${this.img}" alt="portfolio image" height="60" />
             <p>${this.title}</p>
         </div>`;
   }

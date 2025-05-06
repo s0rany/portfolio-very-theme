@@ -46,12 +46,26 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
         //margin: var(--ddd-spacing-2);
         //padding: var(--ddd-spacing-4);
       }
+      .portfolio-very-nav {
+        position: fixed;
+        top: var(--ddd-spacing-0);
+        left: var(--ddd-spacing-0);
+      }
+      
       h3 span {
         font-size: var(--portfolio-very-theme-label-font-size, var(--ddd-font-size-s));
       }
       a, a:link, a:visited, a:hover, a:active {
-        color: white;
+        color: var(--ddd-theme-default-white);
         text-decoration: none; 
+        font-size: var(--ddd-font-size-s);
+      }
+
+      @media (max-width: 700px)
+      {
+        a, a:link, a:visited, a:hover, a:active {
+          font-size: var(--ddd-font-size-3xs);
+        }
       }
      
     `];
@@ -62,10 +76,11 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
     return html`
     <slot name="title" ></slot>
     <portfolio-very-nav>
-      ${this.screens.map((screen, index) => html `<a href="#${screen.number}" @click="${this.linkChange}" data-index="${index}">${screen.title}</a>`)}
+      ${this.screens.map((screen, index) => html `<a href="#screen-${screen.number}" @click="${this.linkChange}" data-index="${index}">${screen.title}</a>`)}
     </portfolio-very-nav>
       <div class="wrapper" @screen-added="${this.addScreen}">
         <slot name="screens"></slot>
+        <slot name="scroll"></slot>
       </div>`;
   }
 
@@ -75,6 +90,7 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
       this.screens[number].element.scrollIntoView();
     }
   }
+
   addScreen(e) {
     const element = e.detail.value
     const screen = {
@@ -83,11 +99,6 @@ export class PortfolioVeryTheme extends DDDSuper(I18NMixin(LitElement)) {
       element: element,
     }
     this.screens = [...this.screens, screen];
-  }
-
-  firstUpdated() {
-    window.location.hash = "#1";    
-    this.screens[1].element.scrollIntoView;
   }
 
   /**
