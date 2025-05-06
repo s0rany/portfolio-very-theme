@@ -78,10 +78,6 @@ export class PortfolioVeryScreen extends DDDSuper(I18NMixin(LitElement)) {
         height: 100%;
         color: var(--ddd-theme-default-coalyGray);
       }
-      .info p {
-        max-width: 500px;
-        margin: 0 auto; /* Centers the paragraph horizontally */
-      }
       ::slotted(img)
       {
         width: auto;
